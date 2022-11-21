@@ -1,0 +1,103 @@
+
+/* player */
+.player {
+    position: absolute;
+    height: 70px;
+    width: 135px;
+    top: 280px;
+    right: 180px;
+    background-image: url('img/player.png');
+}
+
+body{
+    background-image: url('/img/bg.png');
+}
+.jambu {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    left: 400px;
+    top: 200px;
+    
+    background-image: url('img/jambu.png');
+    
+}
+
+.jeruk {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    left: 400px;
+    top: 200px;
+    
+    background-image: url('img/jeruk.png');
+    
+}
+.str {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    left: 400px;
+    top: 200px;
+    
+    background-image: url('img/str.png');
+    
+}
+.apple {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    left: 400px;
+    top: 200px;
+    
+    background-image: url('img/apple.png');
+    
+}
+
+@keyframes jatuh{
+    0%{
+        transform: translateY(0px);
+    }
+
+   
+}
+
+@keyframes kanan{
+    0%{
+        background-position: 0px 70px;
+    }
+    
+}
+@keyframes kiri{
+    0%{
+        background-position: 320px 320px;
+    }
+    
+}
+@keyframes bawah{
+    0%{
+        height: 138px;
+        width: 70px;
+        background-position: 155px 310px;
+    }
+    
+}
+@keyframes atas{
+    0%{
+        height: 138px;
+        width: 70px;
+        background-position: 70px 310px;
+    }
+    
+}
+
+/* animasi */
+/* @keyframes animate {
+    0% {
+        transform: translateY(-50px);
+    }
+
+    100% {
+        transform: translateY(calc(100vh + 50px));
+    }
+} */

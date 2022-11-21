@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <!-- container -->
+  <!-- audio -->
+  <div>
+    <audio controls autoplay id="sMakan" hidden>
+  </audio>
+    <audio controls autoplay id="sGame" hidden>
+  </audio>
+  <!-- <audio controls autoplay id="sGame" loop>
+    <source src="/sound/sound1.mp3" type="audio/mpeg">
+            </audio>
+  </div> -->
+  <!-- end audio -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="col-12 col-md-12 text-center">
+          <span class="timer">
+            <h3 id="counter" style="color: rgb(255, 255, 255);"></h3>
+          </span>
+        </div>
+        <div class="card" style="max-width: 7rem; background-color: rgba(9, 250, 73, 0.11); border-bottom-left-radius: 10%; border-top-left-radius: 10%; border-bottom-right-radius: 10%; border-top-right-radius: 10%;">
+          <h3 id="napple" style="color: #fff;"><img src="/img/apple.png" alt=""> x 0</h3>
+          <h3 id="jeruk" style="color: #fff;"><img src="/img/jeruk.png" alt=""> x 0</h3>
+          <h3 id="jambu" style="color:#fff;"><img src="/img/jambu.png" alt=""> x 0</>
+          <h3 id="str" style="color: #fff;"><img src="/img/str.png" alt=""> x 0</h3>
+        </div>
+       
+        <div class="card-img-overlay">
+          <div id="player" class="player"></div>
+          <div class="buah" id="buah1"></div>
+          <div class="buah" id="buah2"></div>
+          <div class="buah" id="buah3"></div>
+          <div class="buah" id="buah4"></div>
+          <div class="pohon"></div>
+        </div>
+      </div>
+    <div class="col-12 col-md-12 text-center">
+      <form action="">
+        <span class="Btn" id="verifiBtn">
+      </form>
+    </div>
+    <div class="col-12 col-md-12 text-center">
+      <span class="timer">
+        <h2 id="start" style="color: rgba(101, 101, 101, 0.835);" class="display-1"></h2>
+      </span>
+    </div>
+    </div>
+  </div>
+  
+  <!--modal pertama -->
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Jawab Quiz untuk melanjutkan permainan</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- tabel -->
+          <table class="table table-bordered text-center">
+            <thead>
+              <tr>
+                <th scope="col">Nama Buah</th>
+                <th scope="col">Gambar</th>
+                <th scope="col">Jumlah</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Apel</th>
+                <td><img src="/img/apple.png" alt=""></td>
+                <td id="jApel" class="jBuah">0</td>
+              </tr>
+              <tr>
+                <th scope="row">Jeruk</th>
+                <td><img src="/img/jeruk.png" alt=""></td>
+                <td id="jJeruk" class="jBuah">0</td>
+              </tr>
+              <tr>
+                <th scope="row">Jambu</th>
+                <td><img src="/img/jambu.png" alt=""></td>
+                <td id="jJambu" class="jBuah">0</td>
+              </tr>
+              <tr>
+                <th scope="row">Strowbery</th>
+                <td><img src="/img/str.png" alt=""></td>
+                <td id="jStr" class="jBuah">0</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- end tabel -->
+          <span class="alert" id="alert"></span>
+          <form>
+            <div class="form-group-row">
+              <label for="recipient-name" class="col-form-label">Soal Matematika :</label>
+              <h3 for="recipient-name" id="quiz1" class="col-form-label text-center"></h3>
+            <div class="form-row">
+              <div class="col-4"></div>
+              <div class="col-4">
+                <input type="text" class="form-control" id="jawab" required>
+              </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-12 text-center">
+              <button type="button" class="btn btn-outline-success center-block mt-2" onclick="cekHasil()">Jawab</button>
+            </div>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end -->
+  
+  <!-- modal kedua -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="salah" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLongTitle">Maaf Jawaban Anda Salah!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+       <img src="/img/cancel.png" width="50%" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="benar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLongTitle">Yee Jawaban Kamu Benar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+       <img src="/img/checklist.png" width="50%" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- end modal kedua -->
+
+  <!-- end container -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
